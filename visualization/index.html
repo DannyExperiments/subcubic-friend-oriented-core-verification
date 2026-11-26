@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Choose a vertex cover</title>
+<style>*{box-sizing:border-box}body{font:18px/1.5 system-ui,sans-serif;background:#f6f4eb;color:#142f35;max-width:850px;margin:auto;padding:20px}h1{line-height:1.1}canvas{width:min(100%,600px);height:auto;display:block;background:#f0eee4;touch-action:pan-y}fieldset{border:1px solid #adb7ae;padding:10px 16px}label{padding:5px;display:inline-block}output{display:block;font-weight:bold;color:#005e55}.note{max-width:660px}button{font:inherit}</style>
+<h1>Which coalition can block?</h1><p>Select vertices of the cubic input graph. A selected vertex buys one 20-agent gadget. An uncovered edge has no selected endpoint.</p>
+<canvas id="picture" width="600" height="350" aria-label="Rotatable tetrahedral drawing of the cubic input graph"></canvas>
+<label>Rotate <input id="angle" type="range" min="0" max="360" value="25"></label>
+<fieldset><legend>Selected vertices</legend><label><input type="checkbox" value="A"> A</label><label><input checked type="checkbox" value="B"> B</label><label><input checked type="checkbox" value="C"> C</label><label><input type="checkbox" value="D"> D</label></fieldset>
+<label>Cover budget <select id="budget"><option>2</option><option selected>3</option></select></label>
+<output id="count" aria-live="polite"></output><p id="detail"></p>
+<p class="note">The four vertices stand for input vertices. Each selected vertex expands into two triangles joined by a bridge and a tether with 14 internal agents. Each input edge has its own pair of switch agents. The game uses mutual friendships of degree at most three. See the paper for the argument that every weak block pays for a whole gadget at some endpoint of every input edge.</p>
+<script>
+const points={A:[1,1,1],B:[-1,-1,1],C:[-1,1,-1],D:[1,-1,-1]},names=Object.keys(points);
+const pairs=names.flatMap((a,i)=>names.slice(i+1).map(b=>[a,b]));
+const ctx=picture.getContext('2d');
+function draw(){
+ const s=new Set([...document.querySelectorAll('input:checked')].map(x=>x.value)),a=angle.value*Math.PI/180;
+ const coordinates=Object.fromEntries(names.map(k=>{const[x,y,z]=points[k],u=x*Math.cos(a)+z*Math.sin(a),v=-x*Math.sin(a)+z*Math.cos(a);return[k,[300+86*u,174-86*(y*Math.cos(.26)-v*Math.sin(.26)),y*Math.sin(.26)+v*Math.cos(.26)]]}));
+ ctx.clearRect(0,0,600,350);
+ const unpaid=pairs.filter(([x,y])=>!s.has(x)&&!s.has(y));
+ for(const [x,y] of pairs){const p=coordinates[x],q=coordinates[y],hit=s.has(x)||s.has(y);ctx.beginPath();ctx.moveTo(p[0],p[1]);ctx.lineTo(q[0],q[1]);ctx.lineWidth=hit?3:6;ctx.strokeStyle=hit?'#00746b':'#ba482d';ctx.stroke();}
+ for(const k of [...names].sort((x,y)=>coordinates[x][2]-coordinates[y][2])){const[x,y]=coordinates[k];ctx.beginPath();ctx.arc(x,y,18,0,2*Math.PI);ctx.fillStyle=s.has(k)?'#00746b':'#f6f4eb';ctx.fill();ctx.strokeStyle='#142f35';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle=s.has(k)?'white':'#142f35';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 20px system-ui';ctx.fillText(k,x,y);}
+ const total=28+20*s.size+6+pairs.filter(p=>s.has(p[1])).length,old=28+20*Number(budget.value)+13;
+ count.textContent=(6-unpaid.length)+' of 6 edges covered. '+s.size+' of '+budget.value+' gadgets used.';
+ detail.textContent=unpaid.length?'Uncovered: '+unpaid.map(p=>p.join('')).join(', ')+'. For each such edge, its switch lacks the support of a selected endpoint.':s.size>Number(budget.value)?'Every edge is covered, but these gadgets exceed the budget.':'The constructed coalition has '+total+' agents; the original block has '+old+'. Original agents keep their friend count or improve it in the smaller coalition, and all incoming agents gain a friend.';
+}
+document.addEventListener('input',draw);draw();
+</script></html>
