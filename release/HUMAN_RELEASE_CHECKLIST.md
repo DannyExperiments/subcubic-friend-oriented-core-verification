@@ -1,16 +1,12 @@
-# Human release checklist
+# Release approval
 
-This checklist records the decisions for the candidate in this directory. Status entries apply to this candidate only.
+On 26 November 2026 DannyExperiments approved public GitHub release and DOI archiving of this reviewed version.
 
-| Decision | Approval or receipt |
-| --- | --- |
-| Exact headline and statement of contribution | Pending |
-| Publisher identity and author credit | Pending |
-| AI and human contribution disclosure | Pending |
-| Rights and reuse terms | Pending |
-| Repository visibility | Private local candidate |
-| Release tag and exact commit | Pending |
-| Archive assets and DOI deposit | Pending |
-| Catalog, journal or author notification | Pending |
-
-Before a release decision, record the exact commit and the repository verification, replay and PDF build outcomes. Inspect the PDF and every file in the proposed archive, including archive contents and PDF metadata. Confirm that the evidence ZIP, included files and checksums match the proposed release. For any approved release or notice, record the resulting public links and delivery receipts after verification.
+| Item | Record |
+|---|---|
+| Version | [v1.0.0](https://github.com/DannyExperiments/subcubic-friend-oriented-core-verification/releases/tag/v1.0.0) |
+| Mathematical content | The paper and verifier are unchanged from [the reviewed commit](https://github.com/DannyExperiments/subcubic-friend-oriented-core-verification/commit/d067450958aa47773f57db0161e6392961b0a68d). |
+| Verification | Repository integrity, replay and PDF build passed on that reviewed commit. The README links the live workflow records. |
+| Attribution | DannyExperiments is the citation identity. The manuscript is authorless. See [AI disclosure](../AI_DISCLOSURE.md). |
+| Rights | All rights reserved, as stated in [LICENSE_STATUS.md](../LICENSE_STATUS.md). |
+| Scholarly status | Internally reviewed, not peer reviewed. |

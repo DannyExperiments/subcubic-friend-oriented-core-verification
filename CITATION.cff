@@ -1,9 +1,11 @@
 cff-version: 1.2.0
-message: "Cite this candidate using its commit identifier."
+message: "Cite this version of the research release."
 title: "Core verification with at most three mutual friends"
 authors:
   - name: "DannyExperiments"
 type: software
+version: "1.0.0"
+date-released: 2026-11-26
 repository-code: "https://github.com/DannyExperiments/subcubic-friend-oriented-core-verification"
 keywords:
   - "hedonic games"

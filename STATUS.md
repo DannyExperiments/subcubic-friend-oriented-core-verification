@@ -1,6 +1,6 @@
 # Status
 
-Private release candidate, 26 November 2026. The director reviewed the proof and adjudicated the source comparisons. Confidence in the stated mathematics is high. Internally reviewed, not peer reviewed. Formalization has not been attempted.
+Version 1.0.0, 26 November 2026. The director reviewed the proof and adjudicated the source comparisons. Confidence in the stated mathematics is high. Internally reviewed, not peer reviewed. Formalization has not been attempted.
 
 No prior resolution of the three-mutual-friend case was located. Confidence in the bounded priority search is moderate to high.
 

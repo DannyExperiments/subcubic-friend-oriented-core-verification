@@ -1,4 +1,4 @@
-name: Verify public candidate
+name: Repository verification
 
 on:
   push:

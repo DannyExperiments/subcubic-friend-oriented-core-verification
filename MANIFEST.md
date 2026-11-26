@@ -1,12 +1,13 @@
 # Manifest
 
-These files form the candidate inventory. `SHA256SUMS.txt` records their digests and is excluded from its own ledger.
+These files form the release inventory. `SHA256SUMS.txt` records their digests and is excluded from its own ledger.
 
 - `.gitattributes`
 - `.github/workflows/pdf.yml`
 - `.github/workflows/replay.yml`
 - `.github/workflows/verify.yml`
 - `.gitignore`
+- `.zenodo.json`
 - `AI_DISCLOSURE.md`
 - `CITATION.cff`
 - `CLAIMS_EVIDENCE_MATRIX.md`
