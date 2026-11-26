@@ -24,22 +24,22 @@ def font(size, bold=False):
             continue
     return ImageFont.load_default(size=size)
 
-TITLE, HEAD, BODY, LABEL, SMALL = font(34, True), font(27, True), font(22), font(21, True), font(18)
+TITLE, HEAD, BODY, LABEL, SMALL = font(33, True), font(29, True), font(24), font(25, True), font(19)
 
 def project(point, angle):
     x, y, z = point
     u, v = x*cos(angle)+z*sin(angle), -x*sin(angle)+z*cos(angle)
     til = 0.26
     height, depth = y*cos(til)-v*sin(til), y*sin(til)+v*cos(til)
-    return 213+94*u, 245-94*height, depth
+    return 314+90*u, 236-90*height, depth
 
 def frame(stage, angle):
-    image = Image.new("RGB", (880, 456), BG)
+    image = Image.new("RGB", (628, 720), BG)
     draw = ImageDraw.Draw(image)
     title, chosen, lines = STAGES[stage]
-    draw.text((26, 16), "From a vertex cover to a blocking coalition", font=TITLE, fill=INK)
-    draw.line((26, 76, 854, 76), fill=EDGE)
-    draw.text((26, 86), "Cubic input graph  ·  K4", font=SMALL, fill=GRAY)
+    draw.text((22, 13), "Buying a blocking coalition", font=TITLE, fill=INK)
+    draw.line((22, 64, 606, 64), fill=EDGE)
+    draw.text((22, 73), "Cubic input graph  ·  K4", font=SMALL, fill=GRAY)
     pos = {k: project(v, angle) for k, v in POINTS.items()}
     def paint_edge(pair):
         s, t = pair
@@ -50,17 +50,17 @@ def frame(stage, angle):
         paint_edge(pair)
     for v in sorted(POINTS, key=lambda k:pos[k][2]):
         x, y, depth = pos[v]
-        radius = round(18 + depth)
+        radius = round(19 + depth)
         draw.ellipse((x-radius,y-radius,x+radius,y+radius), fill=GREEN if v in chosen else BG, outline=INK,width=2)
         draw.text((x,y), v, font=LABEL, anchor="mm", fill="white" if v in chosen else INK)
-    draw.text((422, 96), title, font=HEAD, fill=INK)
+    draw.text((22, 404), title, font=HEAD, fill=INK)
     for i,line in enumerate(lines):
-        draw.text((422, 145+32*i), line, font=BODY, fill=INK)
+        draw.text((22, 452+31*i), line, font=BODY, fill=INK)
     paid = sum(bool(set(e) & set(chosen)) for e in EDGES)
-    draw.text((26, 402), f"{paid} of 6 edges covered", font=LABEL,fill=GREEN if paid==6 else INK)
-    draw.text((422, 403), "●  selected vertex" if stage!=1 and stage!=4 else "Red line = uncovered edge AD", font=SMALL,fill=RED if stage in (1,4) else GREEN)
+    draw.text((305, 73), f"{paid} of 6 edges covered", font=LABEL,fill=GREEN if paid==6 else INK)
+    draw.text((22, 663), "●  selected vertex" if stage!=1 and stage!=4 else "Red line = uncovered edge AD", font=SMALL,fill=RED if stage in (1,4) else GREEN)
     for j in range(5):
-        draw.rectangle((26+167*j,441,185+167*j,444),fill=GREEN if j==stage else EDGE)
+        draw.rectangle((22+118*j,702,132+118*j,707),fill=GREEN if j==stage else EDGE)
     return image.convert("P", palette=Image.Palette.ADAPTIVE, colors=48)
 
 if __name__ == "__main__":

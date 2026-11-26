@@ -17,10 +17,10 @@ function draw(){
  ctx.clearRect(0,0,600,350);
  const unpaid=pairs.filter(([x,y])=>!s.has(x)&&!s.has(y));
  for(const [x,y] of pairs){const p=coordinates[x],q=coordinates[y],hit=s.has(x)||s.has(y);ctx.beginPath();ctx.moveTo(p[0],p[1]);ctx.lineTo(q[0],q[1]);ctx.lineWidth=hit?3:6;ctx.strokeStyle=hit?'#00746b':'#ba482d';ctx.stroke();}
- for(const k of [...names].sort((x,y)=>coordinates[x][2]-coordinates[y][2])){const[x,y]=coordinates[k];ctx.beginPath();ctx.arc(x,y,18,0,2*Math.PI);ctx.fillStyle=s.has(k)?'#00746b':'#f6f4eb';ctx.fill();ctx.strokeStyle='#142f35';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle=s.has(k)?'white':'#142f35';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 20px system-ui';ctx.fillText(k,x,y);}
+ for(const k of [...names].sort((x,y)=>coordinates[x][2]-coordinates[y][2])){const[x,y]=coordinates[k];ctx.beginPath();ctx.arc(x,y,Math.max(18,Math.ceil(12*600/picture.getBoundingClientRect().width)),0,2*Math.PI);ctx.fillStyle=s.has(k)?'#00746b':'#f6f4eb';ctx.fill();ctx.strokeStyle='#142f35';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle=s.has(k)?'white':'#142f35';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold '+Math.max(20,Math.ceil(14*600/picture.getBoundingClientRect().width))+'px system-ui';ctx.fillText(k,x,y);}
  const total=28+20*s.size+6+pairs.filter(p=>s.has(p[1])).length,old=28+20*Number(budget.value)+13;
  count.textContent=(6-unpaid.length)+' of 6 edges covered. '+s.size+' of '+budget.value+' gadgets used.';
  detail.textContent=unpaid.length?'Uncovered: '+unpaid.map(p=>p.join('')).join(', ')+'. For each such edge, its switch lacks the support of a selected endpoint.':s.size>Number(budget.value)?'Every edge is covered, but these gadgets exceed the budget.':'The constructed coalition has '+total+' agents; the original block has '+old+'. Original agents keep their friend count or improve it in the smaller coalition, and all incoming agents gain a friend.';
 }
-document.addEventListener('input',draw);draw();
+document.addEventListener('input',draw);window.addEventListener('resize',draw);draw();
 </script></html>
