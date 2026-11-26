@@ -1,0 +1,2 @@
+240 small-game comparisons with exhaustive enumeration passed.
+38 coalition checks matched the vertex-cover decision.
