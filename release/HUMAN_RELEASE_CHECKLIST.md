@@ -10,3 +10,5 @@ On 26 November 2026 DannyExperiments approved public GitHub release and DOI arch
 | Attribution | DannyExperiments is the citation identity. The manuscript is authorless. See [AI disclosure](../AI_DISCLOSURE.md). |
 | Rights | All rights reserved, as stated in [LICENSE_STATUS.md](../LICENSE_STATUS.md). |
 | Scholarly status | Internally reviewed, not peer reviewed. |
+| Version DOI | [10.5281/zenodo.24564936](https://doi.org/10.5281/zenodo.24564936) |
+| Concept DOI | [10.5281/zenodo.24564935](https://doi.org/10.5281/zenodo.24564935) |

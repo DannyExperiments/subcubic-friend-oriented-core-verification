@@ -11,3 +11,19 @@ keywords:
   - "hedonic games"
   - "core stability"
   - "computational complexity"
+doi: "10.5281/zenodo.24564936"
+url: "https://doi.org/10.5281/zenodo.24564936"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24564935"
+    description: "Concept DOI for all versions."
+preferred-citation:
+  type: software
+  title: "Core verification with at most three mutual friends"
+  authors:
+    - name: "DannyExperiments"
+  version: "1.0.0"
+  date-released: 2026-11-26
+  doi: "10.5281/zenodo.24564936"
+  url: "https://doi.org/10.5281/zenodo.24564936"
+  repository-code: "https://github.com/DannyExperiments/subcubic-friend-oriented-core-verification"
