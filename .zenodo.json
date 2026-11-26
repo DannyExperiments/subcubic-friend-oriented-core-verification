@@ -1,13 +1,13 @@
 {
   "title": "Core verification with at most three mutual friends",
   "upload_type": "software",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "creators": [
     {
       "name": "DannyExperiments"
     }
   ],
-  "description": "<p>Both partition verification problems are coNP-complete for symmetric friend-oriented hedonic games without neutrals and with at most three mutual friends. With at most two they are polynomial-time decidable.</p><p>No prior resolution of the three-mutual-friend case was located. Confidence in the bounded priority search is moderate to high.</p><p>Includes the paper, its LaTeX source and bibliography, the proof outline, review summaries, verification code and replay logs. Internally reviewed, not peer reviewed.</p><p>Under human direction, Gia (OpenAI Dot) generated the discovery proof and its research packet. Claude (Anthropic) assisted with earlier audits and manuscript preparation. OpenAI Codex performed the director’s mathematical review and revised the paper. GPT-6.2 Sol assisted with literature searches and release preparation. DannyExperiments maintains the repository and is the preferred citation identity. No AI system is proposed as an author.</p>",
+  "description": "<p>Both partition verification problems are coNP-complete for symmetric friend-oriented hedonic games without neutrals and with at most three mutual friends. With at most two they are polynomial-time decidable.</p><p>No prior resolution of the three-mutual-friend case was located. Confidence in the bounded priority search is moderate to high.</p><p>Includes the paper, its LaTeX source and bibliography, the proof outline, review summaries, verification code and replay logs. Internally reviewed, not peer reviewed.</p><p>Under human direction, ChatGPT Astra 6.2 (OpenAI) generated the discovery proof and its research packet. Claude Opus 5.5 (Anthropic) assisted with earlier audits and manuscript preparation. OpenAI Codex performed the mathematical review and revised the paper. GPT-6.2 Sol assisted with literature searches and release preparation. DannyExperiments maintains the repository and is the preferred citation identity. No AI system is proposed as an author.</p>",
   "keywords": [
     "hedonic games",
     "core stability",
@@ -17,7 +17,7 @@
   "notes": "All rights reserved. No repository-wide reuse license is granted.",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/DannyExperiments/subcubic-friend-oriented-core-verification/releases/tag/v1.0.0",
+      "identifier": "https://github.com/DannyExperiments/subcubic-friend-oriented-core-verification/releases/tag/v1.0.1",
       "relation": "isSupplementTo",
       "resource_type": "software"
     }
